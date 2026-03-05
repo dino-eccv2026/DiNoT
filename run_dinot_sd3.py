@@ -68,7 +68,7 @@ sd_device = args.sd_device
 vqa_model_device = args.vqa_device
 
 print(f"[Setup] Loading SD3.5 Pipeline on {sd_device}")
-pipe = StableDiffusion3DiNOPipeline.from_pretrained(
+pipe = StableDiffusion3DiNOTPipeline.from_pretrained(
     "stabilityai/stable-diffusion-3.5-medium",
     torch_dtype=torch.float16
 )

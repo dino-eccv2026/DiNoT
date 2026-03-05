@@ -69,7 +69,7 @@ sd_device = args.sd_device
 vqa_model_device = args.vqa_device
 
 print(f"[Setup] Loading SDXL Base 1.0 on {sd_device}")
-pipe = StableDiffusionXLDiNOPipeline.from_pretrained(
+pipe = StableDiffusionXLDiNOTPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     torch_dtype=torch.float16,
     use_safetensors=True,

@@ -76,7 +76,7 @@ vqa_model_device = args.vqa_device
 
 print(f"[Setup] Loading Stable Diffusion {args.sd_model} on {sd_device}")
 model_id = SD_MODELS[args.sd_model]
-pipe = StableDiffusionDiNOPipeline.from_pretrained(model_id)
+pipe = StableDiffusionDiNOTPipeline.from_pretrained(model_id)
 pipe.to(sd_device)
 
 print(f"[Setup] Loading VQA model {args.vqa_model} on {vqa_model_device}")
