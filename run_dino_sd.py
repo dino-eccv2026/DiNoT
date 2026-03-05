@@ -45,7 +45,7 @@ parser.add_argument("--json", "-j", type=str, default="lvqa_prompts.json",
                     help="JSON file with decomposed prompts (from lvqas_data_gen.py)")
 parser.add_argument("--output", "-o", type=str, default="lvqa_eval_images_test",
                     help="Output directory for generated images")
-parser.add_argument("--num_per_prompt", "-n", type=int, default=4,
+parser.add_argument("--num_per_prompt", "-n", type=int, default=1,
                     help="Number of images to generate per prompt")
 parser.add_argument("--seed", "-s", type=int, default=33,
                     help="Base random seed")
@@ -59,7 +59,7 @@ parser.add_argument("--inference_steps", type=int, default=50,
                     help="Number of inference steps")
 parser.add_argument("--sd_device", type=str, default="cuda:0",
                     help="Device for Stable Diffusion")
-parser.add_argument("--vqa_device", type=str, default="cuda:3",
+parser.add_argument("--vqa_device", type=str, default="cuda:1",
                     help="Device for VQA model")
 parser.add_argument("--sd_model", type=str, default="v1.4", choices=list(SD_MODELS.keys()),
                     help="Stable Diffusion model version to use")

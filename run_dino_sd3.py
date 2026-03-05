@@ -40,7 +40,7 @@ parser.add_argument("--json", "-j", type=str, required=True,
                     help="JSON file with decomposed prompts (e.g., sample_data/single_prompt.json)")
 parser.add_argument("--output", "-o", type=str, default="results_sd3",
                     help="Output directory for generated images")
-parser.add_argument("--num_per_prompt", "-n", type=int, default=4,
+parser.add_argument("--num_per_prompt", "-n", type=int, default=1,
                     help="Number of images to generate per prompt")
 parser.add_argument("--seed", "-s", type=int, default=33,
                     help="Base random seed")
