@@ -348,7 +348,7 @@ class DependencyGraphEvaluator:
         return masked_scores, root_scores, avg_score
 
 
-class StableDiffusionDiNOPipeline(
+class StableDiffusionDiNOTPipeline(
     DiffusionPipeline,
     StableDiffusionMixin,
     TextualInversionLoaderMixin,

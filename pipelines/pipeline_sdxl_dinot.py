@@ -18,7 +18,7 @@ from diffusers.image_processor import PipelineImageInput
 from lvqa_dino import DependencyGraphEvaluator
 
 
-class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
+class StableDiffusionXLDiNOTPipeline(StableDiffusionXLPipeline):
     """
     Stable Diffusion XL pipeline with Noise Direction (ND) optimization using LVQA/DINO.
     """
