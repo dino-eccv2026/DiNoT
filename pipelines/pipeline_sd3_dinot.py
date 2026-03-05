@@ -48,14 +48,14 @@ from diffusers.pipelines.pipeline_utils import DiffusionPipeline
 from diffusers.pipelines.stable_diffusion_3.pipeline_output import StableDiffusion3PipelineOutput
 
 # L-DINO-CoT: Localized VQA Scoring imports
-from lvqa_dino import (
+from lvqa_dinot import (
     LDINOOptimizer, 
     EntityInfo, 
     create_entities_from_simple_format,
     GroundedSAMSegmenter,
     DependencyGraphEvaluator
 )
-from lvqa_dino.differentiable_blur import apply_blur_mask
+from lvqa_dinot.differentiable_blur import apply_blur_mask
 
 if is_torch_xla_available():
     import torch_xla.core.xla_model as xm
@@ -760,7 +760,7 @@ class StableDiffusion3DiNOTPipeline(DiffusionPipeline, SD3LoraLoaderMixin, FromS
         
         if use_ldino:
             if self.ldino_optimizer is None:
-                from lvqa_dino import LDINOOptimizer
+                from lvqa_dinot import LDINOOptimizer
                 self.ldino_optimizer = LDINOOptimizer(
                     vqa_model=self.vqa_model,
                     device=self.vqa_model_device,
