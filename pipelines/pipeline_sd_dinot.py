@@ -42,7 +42,7 @@ from diffusers.pipelines.stable_diffusion.pipeline_output import StableDiffusion
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
 
 # Attention utilities for missing object handling
-from lvqa_dino.attention_utils import (
+from lvqa_dinot.attention_utils import (
     AttentionStore,
     register_attention_control,
     restore_attention_processors,
@@ -60,8 +60,8 @@ else:
 
 # L-DINO-CoT: Localized VQA Scoring imports
 
-from lvqa_dino import LDINOOptimizer, EntityInfo, create_entities_from_simple_format
-from lvqa_dino.prompt_decomposer import StructuredCoTDecomposer
+from lvqa_dinot import LDINOOptimizer, EntityInfo, create_entities_from_simple_format
+from lvqa_dinot.prompt_decomposer import StructuredCoTDecomposer
 LVQA_AVAILABLE = True
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
@@ -348,7 +348,7 @@ class DependencyGraphEvaluator:
         return masked_scores, root_scores, avg_score
 
 
-class StableDiffusionDiNOPipeline(
+class StableDiffusionDiNOTPipeline(
     DiffusionPipeline,
     StableDiffusionMixin,
     TextualInversionLoaderMixin,
@@ -1393,7 +1393,7 @@ class StableDiffusionDiNOPipeline(
         self.scheduler.set_timesteps(num_inference_steps)
         latents = latents / self.vae.config.scaling_factor
         image = self.vae.decode(latents, return_dict=False)[0]
-        dir = f"sd_dino_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
+        dir = f"sd_dinot_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
         import os, copy, gc
         save_debug = False
         os.makedirs(dir, exist_ok=True)
@@ -1427,9 +1427,9 @@ class StableDiffusionDiNOPipeline(
             
             # Initialize optimizer if not done
             if not hasattr(self, 'ldino_optimizer') or self.ldino_optimizer is None:
-                from lvqa_dino import LDINOOptimizer
+                from lvqa_dinot import LDINOOptimizer
                 # Import differentiable blur
-                from lvqa_dino.differentiable_blur import apply_blur_mask
+                from lvqa_dinot.differentiable_blur import apply_blur_mask
                 
                 self.ldino_optimizer = LDINOOptimizer(
                     vqa_model=self.vqa_model,
@@ -1487,7 +1487,7 @@ class StableDiffusionDiNOPipeline(
                     combined_np = self.ldino_optimizer.segmenter.visualize_masks(image_pil, initial_masks)
                     Image.fromarray(combined_np).save(f"{mask_dir}/combined_masks.png")
 
-        from lvqa_dino.differentiable_blur import apply_blur_mask
+        from lvqa_dinot.differentiable_blur import apply_blur_mask
         
         for n_id, p in graph_evaluator.questions.items():
             # Zero existing gradients
@@ -1792,7 +1792,7 @@ class StableDiffusionDiNOPipeline(
             individual_vqa_scores_epoch = []
             
             import copy
-            from lvqa_dino.differentiable_blur import apply_blur_mask
+            from lvqa_dinot.differentiable_blur import apply_blur_mask
             
             # Update segmentation masks for the new generated image
             # This ensures gradients flow through the correct entity regions

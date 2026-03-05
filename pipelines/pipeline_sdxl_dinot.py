@@ -15,10 +15,10 @@ from diffusers.pipelines.stable_diffusion_xl.pipeline_stable_diffusion_xl import
 )
 from diffusers.image_processor import PipelineImageInput
 
-from lvqa_dino import DependencyGraphEvaluator
+from lvqa_dinot import DependencyGraphEvaluator
 
 
-class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
+class StableDiffusionXLDiNOTPipeline(StableDiffusionXLPipeline):
     """
     Stable Diffusion XL pipeline with Noise Direction (ND) optimization using LVQA/DINO.
     """
@@ -338,7 +338,7 @@ class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
             image = image.float()
 
         # -- ND optimization logic --
-        dir = f"sdxl_dino_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
+        dir = f"sdxl_dinot_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
         save_debug = True
         os.makedirs(dir, exist_ok=True)
 
@@ -367,7 +367,7 @@ class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
                 n["concept"]: [] for n in graph_evaluator.nodes.values() if n.get("type", "Entity") == "Entity"
             }
             if not hasattr(self, 'ldino_optimizer') or self.ldino_optimizer is None:
-                from lvqa_dino import LDINOOptimizer
+                from lvqa_dinot import LDINOOptimizer
                 self.ldino_optimizer = LDINOOptimizer(
                     vqa_model=self.vqa_model,
                     device=self.vqa_model_device,
@@ -399,7 +399,7 @@ class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
         gc.collect()
         torch.cuda.empty_cache()
 
-        from lvqa_dino.differentiable_blur import apply_blur_mask
+        from lvqa_dinot.differentiable_blur import apply_blur_mask
         
         # --- Initial Graph Evaluation WITH gradient ---
         # Only track grad through reverse + VAE decode (not through UNet's denoise)
