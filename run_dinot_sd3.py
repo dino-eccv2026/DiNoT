@@ -147,8 +147,6 @@ for idx in range(start_idx, end_idx):
             "guidance_scale": 7.0,
             "generator": generator,
             "optimization_epoch": args.epochs,
-            "save_debug": True,
-            "dir": prompt_dir,
         }
 
         if not args.no_ldino:
