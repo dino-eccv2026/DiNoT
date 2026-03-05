@@ -61,7 +61,7 @@ python run_dinot_sd.py --json data/drawbench_data.json --output results_sd --sd_
 ### Stable Diffusion 3.5 Medium
 
 ```bash
-python run_dinot_sd3.py --json data/drawbench_data.json --output results_sd3 --epochs 20
+python run_dinot_sd3.py --json data/drawbench_data.json --output results_sd3 --epochs 2
 ```
 
 ### Stable Diffusion XL 1.0
@@ -98,16 +98,16 @@ python run_dinot_sdxl.py --json data/partiprompt_data.json --output results_part
 
 ## ⚙️ Configuration Reference
 
-| Argument           | Description                                     | Default                 |
-| ------------------ | ----------------------------------------------- | ----------------------- |
-| `--json`, `-j`     | **Required**. Path to the input JSON file.      | -                       |
-| `--output`, `-o`   | Directory to save images and logs.              | `results`               |
-| `--num_per_prompt` | Number of images to generate per prompt.        | `1`                     |
-| `--epochs`, `-e`   | Optimization iterations per image.              | `2` (SDXL) / `20` (SD3) |
-| `--vqa_model`      | VQA model for scoring (e.g., `llava-v1.5-13b`). | `clip-flant5-xl`        |
-| `--sd_device`      | CUDA device for the diffusion model.            | `cuda:0`                |
-| `--vqa_device`     | CUDA device for the VQA model.                  | `cuda:1`                |
-| `--no_ldino`       | Disable optimization (baseline).                | `False`                 |
+| Argument           | Description                                     | Default                |
+| ------------------ | ----------------------------------------------- | ---------------------- |
+| `--json`, `-j`     | **Required**. Path to the input JSON file.      | -                      |
+| `--output`, `-o`   | Directory to save images and logs.              | `results`              |
+| `--num_per_prompt` | Number of images to generate per prompt.        | `1`                    |
+| `--epochs`, `-e`   | Optimization iterations per image.              | `2` (SDXL) / `2` (SD3) |
+| `--vqa_model`      | VQA model for scoring (e.g., `llava-v1.5-13b`). | `clip-flant5-xl`       |
+| `--sd_device`      | CUDA device for the diffusion model.            | `cuda:0`               |
+| `--vqa_device`     | CUDA device for the VQA model.                  | `cuda:1`               |
+| `--no_ldino`       | Disable optimization (baseline).                | `False`                |
 
 ---
 
