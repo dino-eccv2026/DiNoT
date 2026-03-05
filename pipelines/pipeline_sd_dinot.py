@@ -1393,7 +1393,7 @@ class StableDiffusionDiNOTPipeline(
         self.scheduler.set_timesteps(num_inference_steps)
         latents = latents / self.vae.config.scaling_factor
         image = self.vae.decode(latents, return_dict=False)[0]
-        dir = f"sd_dino_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
+        dir = f"sd_dinot_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
         import os, copy, gc
         save_debug = False
         os.makedirs(dir, exist_ok=True)
