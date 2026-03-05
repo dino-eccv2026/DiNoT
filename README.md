@@ -21,9 +21,8 @@ curl -LsSf https://astral-sh/uv/install.sh | sh
 Clone the repository and synchronize the environment. `uv` will automatically create a virtual environment and install all necessary dependencies.
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-repo/L-DINO-CoT.git
-cd L-DINO-CoT
+# Clone the repogit@github.com:dino-eccv2026/DiNoT.git
+cd DiNoT
 
 # Create environment and install dependencies
 uv sync
