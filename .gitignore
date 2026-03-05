@@ -214,3 +214,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# extras
+sd_dino_details
+sd3_dino_details
+sdxl_dino_details
+hf_cache
+results_sd
+results_sd3
+results_sdxl
