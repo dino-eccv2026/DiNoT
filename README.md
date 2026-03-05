@@ -1,4 +1,4 @@
-# DiNo: DiNo: Directional Noise Transport for Semantic Alignment in Diffusion Models
+# DiNo: Directional Noise Transport for Semantic Alignment in Diffusion Models
 
 ---
 
