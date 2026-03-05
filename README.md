@@ -113,7 +113,7 @@ python run_dinot_sdxl.py --json data/partiprompt_data.json --output results_part
 
 ## 📂 Project Structure
 
-- `lvqa_dino/`: Core logic for segmentation, optimization, and scoring.
+- `lvqa_dinot/`: Core logic for segmentation, optimization, and scoring.
 - `pipelines/`: Custom DiNoT-integrated diffusion pipelines.
 - `t2v_metrics/`: Internal library for VQA score calculations.
 - `data/`: Benchmark datasets (DrawBench, GenEval, PartiPrompts).
