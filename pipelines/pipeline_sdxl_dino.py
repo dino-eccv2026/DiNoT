@@ -338,7 +338,7 @@ class StableDiffusionXLDiNOPipeline(StableDiffusionXLPipeline):
             image = image.float()
 
         # -- ND optimization logic --
-        dir = f"sdxl_test/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
+        dir = f"sdxl_dino_details/{prompt[:25].replace(' ', '_')}/{generator.initial_seed()}"
         save_debug = True
         os.makedirs(dir, exist_ok=True)
 

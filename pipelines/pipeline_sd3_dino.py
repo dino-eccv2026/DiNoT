@@ -1148,7 +1148,7 @@ class StableDiffusion3DiNOPipeline(DiffusionPipeline, SD3LoraLoaderMixin, FromSi
         latents = (latents / self.vae.config.scaling_factor) + self.vae.config.shift_factor
         image = self.vae.decode(latents, return_dict=False)[0]
         detail = [prompt]
-        dir = f"sd3/{prompt.replace(' ', '_')}/{generator.initial_seed()}"
+        dir = f"sd3_dino_details/{prompt.replace(' ', '_')}/{generator.initial_seed()}"
         import os
         os.makedirs(dir, exist_ok=True)
         image = image.to(self.vqa_model_device)
