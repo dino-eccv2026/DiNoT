@@ -44,6 +44,7 @@ Before generating images, natural language prompts must be decomposed into struc
 
 ```bash
 python data_gen.py --input prompts.txt --output data.json
+
 ```
 
 ---
@@ -96,6 +97,7 @@ python run_dinot_sdxl.py --json data/partiprompt_data.json --output results_part
 
 ---
 
+## ⚙️ Configuration Reference
 ## ⚙️ Configuration Reference
 
 | Argument           | Description                                     | Default                |
