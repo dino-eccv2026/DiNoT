@@ -1,50 +1,25 @@
 {
   "prompts": [
     {
-      "prompt": "a blue pen and a red notebook",
+      "prompt": "a photo of a wine glass and a bear",
       "dependency_graph": {
         "nodes": [
           {
             "id": "q1",
             "type": "Entity",
-            "concept": "pen",
-            "question": "Is there a pen in the image?",
+            "concept": "wine glass",
+            "question": "Is there a wine glass in the image?",
             "parent_id": null
           },
           {
             "id": "q2",
-            "type": "Attribute",
-            "concept": "blue",
-            "question": "Is the pen blue?",
-            "parent_id": "q1"
-          },
-          {
-            "id": "q3",
             "type": "Entity",
-            "concept": "notebook",
-            "question": "Is there a notebook in the image?",
+            "concept": "bear",
+            "question": "Is there a bear in the image?",
             "parent_id": null
-          },
-          {
-            "id": "q4",
-            "type": "Attribute",
-            "concept": "red",
-            "question": "Is the notebook red?",
-            "parent_id": "q3"
-          },
-          {
-            "id": "q5",
-            "type": "Relation",
-            "concept": "and",
-            "question": "Are the pen and notebook together?",
-            "parent_id": ["q1", "q3"]
           }
         ]
-      },
-      "entity_attributes": {
-        "pen": ["blue"],
-        "notebook": ["red"]
       }
-    }
+    }      
   ]
 }
